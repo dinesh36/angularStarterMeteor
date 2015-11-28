@@ -4,7 +4,7 @@ Simple angular bootstrap project to bootstrap your angular meteor application
 
 This project has the following steps with following branches : 
 
-* angular-lass - Branch contains the angular and less thigs , Need to add/remove following meteor packages
+* **angular-lass** - Branch contains the angular and less thigs , Need to add/remove following meteor packages
   * **meteor remove ecmascript** - remove the meteor js compiler
   * **meteor remove blaze**-html-templates - remove the meteor html compiler
   * **meteor add angular** - Add the angular plugin to support the angular file structure
