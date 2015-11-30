@@ -11,3 +11,5 @@ This project has the following steps with following branches :
       for angular js files and templates use the .ng.js and .ng.html extentions 
   * **meteor add angularui:angular-ui-router** - To add the route suppport to project
   * **meteor add less** - Add the less file to support the less
+* **bootstrap** - adding bootsrap to project
+  * **meteor add twbs:bootstrap** - adding the bootstrap package to meteor
