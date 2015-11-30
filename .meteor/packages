@@ -20,3 +20,4 @@ angular
 angularui:angular-ui-router
 less
 twbs:bootstrap
+angularui:angular-ui-bootstrap

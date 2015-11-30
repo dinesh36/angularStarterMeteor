@@ -1,4 +1,5 @@
 angular.module('app', [
   'angular-meteor',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap'
 ]);
