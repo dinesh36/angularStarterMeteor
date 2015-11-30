@@ -3,9 +3,11 @@ angular.module("app").config(function ($urlRouterProvider, $stateProvider, $loca
   $stateProvider
     .state('index', {
       url: '/index',
-      templateUrl: 'client/module/views/index.ng.html',
-      controller: 'indexCtrl'
+      templateUrl: 'client/module/views/index.ng.html'
+    })
+    .state('about', {
+      url: '/about',
+      templateUrl: 'client/module/views/about.ng.html'
     });
-    
   $urlRouterProvider.otherwise("/index");
 });
