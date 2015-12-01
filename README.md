@@ -1,6 +1,7 @@
-# collections-paging
-Set the paging for collection
+# collections-auth
+Set the authentication for the collections
 
 ##Packages
-* **meteor add angularutils:pagination**
-* **meteor add tmeasday:publish-counts**
+* **meteor remove insecure**
+* **meteor add accounts-password**
+* **meteor add dotansimha:accounts-ui-angular**

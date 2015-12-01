@@ -6,3 +6,16 @@ if (Meteor.isServer) {
         "description": "text"
     });
 }
+
+//add permission for the user operations
+Gems.allow({
+  insert: function (userId, gem) {
+    return userId;
+  },
+  update: function (userId, gem, fields, modifier) {
+    return userId;
+  },
+  remove: function (userId, gem) {
+    return userId;
+  }
+});
