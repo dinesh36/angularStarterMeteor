@@ -20,3 +20,9 @@ This project has the following steps with following branches :
 * **collections-paging** - add paging/searching/sorting support to collections
   * **meteor add angularutils:pagination** - add paging support to collections
   * **meteor add tmeasday:publish-counts** - add total_count support to collections 
+* **collections-auth** - add authentication support
+  * **meteor remove insecure** - remove the insecure for disallow the users that are not logged in
+  * **meteor add accounts-password** - add accounts-password package to normal login/signup/change password process 
+  * **meteor add dotansimha:accounts-ui-angular** - add UI for login/signup/changepassword process
+
+
