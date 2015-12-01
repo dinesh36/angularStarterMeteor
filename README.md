@@ -13,3 +13,10 @@ This project has the following steps with following branches :
   * **meteor add less** - Add the less file to support the less
 * **bootstrap** - adding bootsrap to project
   * **meteor add twbs:bootstrap** - adding the bootstrap package to meteor
+* **collections** - setting the collections **Gems** - [collections README.md](https://www.github.com)
+  * **meteor add angularui:angular-ui-bootstrap**
+* **collections-publish** - collections with using publish and subscribe method
+  * **meteor remove autopublish** - remove the autopublish to manually publish the collections
+* **collections-paging** - add paging/searching/sorting support to collections
+  * **meteor add angularutils:pagination** - add paging support to collections
+  * **meteor add tmeasday:publish-counts** - add total_count support to collections 
