@@ -3,9 +3,7 @@ angular.module("app").controller("gemsCtrl",
         $scope.searchTerm = 'a';
 
         //set the scope parameter here
-        $scope.gems = $meteor.collection(function() {
-            return Gems.find({});
-        });
+        $scope.gems = $meteor.collection(Gems);
 
         $meteor.autorun($scope, function() {
             //add search parameter
