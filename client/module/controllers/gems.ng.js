@@ -1,6 +1,17 @@
 angular.module("app").controller("gemsCtrl",
     function($scope, $meteor, $modal) {
-        $scope.gems = $meteor.collection(Gems);
+        $scope.searchTerm = 'a';
+
+        //set the scope parameter here
+        $scope.gems = $meteor.collection(function() {
+            return Gems.find({});
+        });
+
+        $meteor.autorun($scope, function() {
+            //add search parameter
+            $meteor.subscribe('gems', $scope.getReactively('searchTerm'));
+        });
+
         $scope.deleteGem = function(gem) {
             $scope.gems.remove({
                 _id: gem._id
@@ -15,7 +26,7 @@ angular.module("app").controller("gemsCtrl",
             });
         };
         $scope.save = function(gem) {
-            if(gem && gem.name && gem.about){
+            if (gem && gem.name && gem.about) {
                 return;
             }
             gem.editMode = false;
@@ -28,12 +39,12 @@ angular.module("app").controller("gemsCtrl",
         $scope.openAddModel = function() {
             $scope.modalInstance = $modal.open({
                 animation: true,
-                scope:$scope,
+                scope: $scope,
                 templateUrl: 'client/module/views/newGem.ng.html'
             });
         };
-        $scope.closeModal = function(){
-            $scope.modalInstance.dismiss('cancel');  
+        $scope.closeModal = function() {
+            $scope.modalInstance.dismiss('cancel');
         };
     }
 );

@@ -6,7 +6,12 @@
         <a class="trash" ng-click="deleteAll()"><span class="glyphicon glyphicon-trash"></span></a>
     </div>
 </div>
-<div class="row" ng-repeat="gem in gems | orderBy:gem.name:AtoZ">
+<div class="row">
+    <div class="col-xs-12">
+        <input type="text" ng-model="searchTerm" class="form-control" placeholder="Search Gem" ng-change="searchGem()">
+    </div>
+</div>
+<div class="row" ng-repeat="gem in gems">
     <div class="col-xs-12 gemContainer" ng-class="{'last':$last}">
         <img src="images/gems.png">
         <div class="inner-container container-fluid" ng-class="gem.editMode?'editMode':''">

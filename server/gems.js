@@ -1,3 +1,3 @@
-// Meteor.publish("gems", function () {
-// 	return Gems.find({});
-// });
+Meteor.publish("gems", function (searchTerm) {
+	return Gems.find({'name' : { '$regex' : '.*' + searchTerm || '' + '.*', '$options' : 'i' }});
+});
