@@ -1,5 +1,6 @@
 angular.module('app', [
   'angular-meteor',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angularUtils.directives.dirPagination'
 ]);

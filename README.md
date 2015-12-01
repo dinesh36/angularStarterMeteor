@@ -1,5 +1,6 @@
-# collections-publish
-Adding collections to project
+# collections-paging
+Set the paging for collection
 
 ##Packages
-* **meteor remove autopublish**
+* **meteor add angularutils:pagination**
+* **meteor add tmeasday:publish-counts**

@@ -1,17 +1,17 @@
 <div class="row">
     <div class="col-xs-12 gemHeader">
-        <a class="sorter" ng-show="!AtoZ" ng-click="AtoZ=true"><span class="glyphicon glyphicon-sort-by-alphabet"></span></a>
-        <a class="sorter" ng-show="AtoZ" ng-click="AtoZ=false"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></a>
+        <a class="sorter" ng-show="sort.name==1" ng-click="sort={name:-1}"><span class="glyphicon glyphicon-sort-by-alphabet"></span></a>
+        <a class="sorter" ng-show="sort.name==-1" ng-click="sort={name:1}"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></a>
         <div class="header">Gems</div>
         <a class="trash" ng-click="deleteAll()"><span class="glyphicon glyphicon-trash"></span></a>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 searchGem">
         <input type="text" ng-model="searchTerm" class="form-control" placeholder="Search Gem" ng-change="searchGem()">
     </div>
 </div>
-<div class="row" ng-repeat="gem in gems">
+<div class="row" dir-paginate="gem in gems | itemsPerPage:perPage" total-items="numberOfGems.count">
     <div class="col-xs-12 gemContainer" ng-class="{'last':$last}">
         <img src="images/gems.png">
         <div class="inner-container container-fluid" ng-class="gem.editMode?'editMode':''">
@@ -26,6 +26,7 @@
         </div>
     </div>
 </div>
+<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
 
 <button class='addButton' ng-click="openAddModel()">
     +

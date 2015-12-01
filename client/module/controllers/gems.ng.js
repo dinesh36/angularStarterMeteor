@@ -1,13 +1,29 @@
 angular.module("app").controller("gemsCtrl",
     function($scope, $meteor, $modal) {
-        $scope.searchTerm = 'a';
+        $scope.searchTerm = '';
+
+        $scope.page = 1;
+        $scope.perPage = 3;
+        $scope.sort = {
+            name: -1
+        };
 
         //set the scope parameter here
-        $scope.gems = $meteor.collection(Gems);
+        $scope.gems = $meteor.collection(function() {
+            //as need to sort the data from the client side also
+            return Gems.find({}, {
+                sort : $scope.getReactively('sort')
+            });
+        });
 
         $meteor.autorun($scope, function() {
-            //add search parameter
-            $meteor.subscribe('gems', $scope.getReactively('searchTerm'));
+            $meteor.subscribe('gems', {
+                limit: parseInt($scope.getReactively('perPage')),
+                skip: (parseInt($scope.getReactively('page')) - 1) * parseInt($scope.getReactively('perPage')),
+                sort: $scope.getReactively('sort')
+            }, $scope.getReactively('searchTerm')).then(function() {
+                $scope.numberOfGems = $meteor.object(Counts, 'numberOfGems', false);
+            });
         });
 
         $scope.deleteGem = function(gem) {
@@ -43,6 +59,10 @@ angular.module("app").controller("gemsCtrl",
         };
         $scope.closeModal = function() {
             $scope.modalInstance.dismiss('cancel');
+        };
+        $scope.pageChanged = function(newPage) {
+            $scope.page = newPage;
+            console.log('here ::' + $scope.page);
         };
     }
 );

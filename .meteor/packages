@@ -20,3 +20,5 @@ angularui:angular-ui-router
 less
 twbs:bootstrap
 angularui:angular-ui-bootstrap
+angularutils:pagination
+tmeasday:publish-counts
